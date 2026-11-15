@@ -1,14 +1,274 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello, World!</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore the evidence behind answers in Bob Bobbington&#8217;s synthetic archive.">
+<title>ProofPath &#183; Bob&#8217;s evidence archive</title>
+<style>
+:root{color-scheme:light;--ink:#202b2a;--muted:#52635f;--line:#d9e1db;--paper:#fffefa;--accent:#145e4d;--wash:#edf5ef}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:#f5f6ef;font:1rem/1.55 "Instrument Sans",system-ui,sans-serif}
+.shell{width:min(1120px,calc(100% - 3rem));margin-inline:auto}
+.top{border-bottom:1px solid var(--line);background:var(--paper)}
+.bar,.brand,nav,.library-head,.filters,.dialog-head{display:flex;align-items:center;gap:1rem}
+.bar,.library-head,.dialog-head{justify-content:space-between}
+.bar{min-height:4.25rem}
+.brand{gap:.6rem;font-weight:800;font-size:1.16rem;text-decoration:none;color:var(--ink)}
+.mark{display:grid;place-items:center;width:2rem;height:2rem;border-radius:.55rem 1rem .55rem .55rem;background:var(--accent);color:white;font-family:Georgia,serif}
+nav a{font-weight:650;text-decoration:none;padding:.5rem .15rem}
+a{color:var(--accent);text-underline-offset:.2em}
+a:hover{text-decoration:underline}
+.intro{padding:2.8rem 0 2rem}
+.eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.115em;color:var(--accent);margin:0 0 .5rem}
+.eyebrow span{margin-inline:.4rem;color:var(--muted)}
+h1,h2,h3,p{margin:0}
+h1{font:500 clamp(2.3rem,6vw,4.2rem)/1.02 "Instrument Serif",Georgia,serif;letter-spacing:-.055em}
+.intro>p:last-child{margin-top:.8rem;color:var(--muted)}
+h2{font-size:1.32rem;letter-spacing:-.025em}
+h3{font-size:1.05rem}
+.muted,footer{color:var(--muted)}
+.grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:1.1rem;align-items:stretch}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:1rem;padding:1.35rem;box-shadow:0 3px 12px #20352b07;scroll-margin-top:1rem}
+.prompts,.citations{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+button,input,select{font:inherit;color:inherit}
+button,input,select{border:1px solid #aebbb3;background:white;border-radius:.5rem;padding:.48rem .7rem;min-height:2.65rem}
+button{cursor:pointer;font-weight:650}
+button:hover{border-color:var(--accent)}
+button[aria-pressed=true]{background:var(--accent);color:white;border-color:var(--accent)}
+:focus-visible{outline:3px solid #2869af;outline-offset:3px}
+.answer{padding:1rem 1.15rem;margin-top:1rem;background:var(--wash);border-left:4px solid #408875;border-radius:.55rem}
+.answer h3{font-size:1.19rem;margin:.45rem 0}
+.pill{display:inline-block;font-size:.8rem;font-weight:750;padding:.15rem .55rem;border-radius:1rem;background:#f8e9c8;color:#654100}
+.pill[data-state=symptom]{background:#d8eee4;color:#164c3f}
+.pill[data-state=completion]{background:#eee4f5;color:#553468}
+.related{margin-top:1rem}
+.related h3{font-size:.88rem;margin-bottom:.2rem}
+.source-link{font-weight:700;display:inline-block;padding:.25rem 0}
+.citations .source-link{background:var(--paper);border:1px solid var(--line);border-radius:.4rem;padding:.3rem .55rem}
+.review ol{padding-left:1.25rem;margin:1rem 0 0}
+.review li+li{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--line)}
+.review li p{margin:.3rem 0 .5rem;color:var(--muted)}
+.review button{font-size:.85rem}
+.library{margin-top:1.1rem}
+.filters{flex-wrap:wrap;align-items:end}
+.filters label{display:grid;gap:.15rem;font-size:.85rem;font-weight:650}
+#count{margin:.9rem 0 .4rem;font-size:.85rem}
+#results{list-style:none;padding:0;margin:0}
+.record{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;column-gap:1rem;border-top:1px solid var(--line);padding:.55rem 0}
+.record span{font-size:.87rem}
+footer{padding:1.4rem 0 2rem;font-size:.85rem}
+dialog{width:min(34rem,calc(100% - 2rem));max-height:calc(100% - 2rem);padding:1.3rem;border:1px solid var(--line);border-radius:1rem;color:var(--ink);background:var(--paper)}
+dialog::backdrop{background:#17241dc2}
+dialog h3{margin-top:1.15rem}
+blockquote{margin:.5rem 0;padding:1rem;background:var(--wash);border-left:3px solid var(--accent);white-space:pre-line}
+.skip{position:absolute;top:.5rem;left:.5rem;background:white;padding:.5rem;transform:translateY(-200%)}
+.skip:focus{transform:none}
+@media(max-width:750px){.grid{grid-template-columns:1fr}.library-head{align-items:flex-start;flex-direction:column}.intro{padding-top:2rem}}
+@media(max-width:500px){.shell{width:calc(100% - 1.5rem)}.bar{align-items:flex-start;flex-direction:column;gap:.2rem;padding:.6rem 0}.panel{padding:1rem}nav{flex-wrap:wrap;font-size:.9rem}.filters{width:100%}.filters label,.filters input,.filters select{width:100%}}
+</style>
+
+
 </head>
 <body>
-  <main>
-    <pre>Hello, World!</pre>
-    <small>ProofPath / The Guild</small>
-  </main>
-</body>
-</html>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="shell bar">
+<a class="brand" href="#main"><span class="mark" aria-hidden="true">P</span> ProofPath</a>
+<nav aria-label="Main navigation"><a href="#questions">Questions</a><a href="#documents">Documents</a><a href="#review">Review queue</a></nav>
+</div></header>
+<main id="main" class="shell">
+<header class="intro"><p class="eyebrow">HACKONVIBE DEMO <span> / </span> BASELINE 1</p>
+<h1>Bob&#8217;s evidence archive</h1>
+<p>Bob Bobbington &#183; Synthetic evidence archive</p></header>
+<div class="grid">
+<section class="panel" id="questions" aria-labelledby="questions-heading">
+<h2 id="questions-heading">Ask the archive</h2>
+<p class="muted">Choose a curated question and follow its citations.</p>
+<div id="prompts" class="prompts" role="group" aria-label="Curated questions"></div>
+<div class="answer" aria-live="polite" aria-atomic="true">
+<div id="status" class="pill"></div>
+<h3 id="question"></h3>
+<p id="answer"></p>
+<div id="citations" class="citations"></div>
+</div>
+<div class="related" id="related"></div>
+</section>
+<section class="panel review" id="review" aria-labelledby="review-heading">
+<h2 id="review-heading">Review queue</h2>
+<p class="muted">What the baseline leaves open.</p>
+<ol>
+<li><strong>Confirm the visit</strong><p>Look for a reply accepting the proposed window or a separate appointment confirmation.</p><button type="button" data-question="proposal">View scheduling evidence</button></li>
+<li><strong>Establish repair completion</strong><p>Look for a completed work order or a dated follow-up establishing the work was done.</p><button type="button" data-question="completion">Check completion evidence</button></li>
+</ol>
+</section>
+</div>
+<section class="panel library" id="documents" aria-labelledby="documents-heading">
+<div class="library-head"><div><h2 id="documents-heading">Document index</h2><p class="muted">Search the public demo excerpts.</p></div>
+<div class="filters"><label>Search <input id="search" type="search" placeholder="Try sink or PP-MAINT-001"></label><label>Category <select id="category"><option value="">All categories</option></select></label></div></div>
+<p class="muted" id="count" role="status"></p>
+<ul id="results"></ul>
+</section>
+<noscript>Enable JavaScript to explore the questions and document index.</noscript>
+</main>
+<footer class="shell">ProofPath &#183; Curated excerpts and predefined answers &#183; Frozen Baseline 1</footer>
+<dialog id="source" aria-labelledby="source-title">
+<div class="dialog-head"><p class="eyebrow" id="source-id"></p><form method="dialog"><button autofocus>Close</button></form></div>
+<h2 id="source-title"></h2>
+<p class="muted" id="source-meta"></p>
+<h3>Supporting passage</h3><blockquote id="source-excerpt"></blockquote>
+<h3>Provenance</h3><p id="source-provenance"></p>
+</dialog>
+<script>
+// Only the selected public-safe passages are bundled. The README records the source checks.
+const documents = [
+  {
+    id: 'PP-MAINT-001',
+    title: 'Maintenance correspondence',
+    category: 'Correspondence',
+    date: 'November 13, 2026',
+    excerpt: 'Would Monday, Nov 16,\nbetween 10 and noon work? Please reply to confirm a time.',
+    provenance: 'Synthetic Baseline 1 source email, plain-text body. Exact passage with line endings normalized. Email headers, address details and surrounding correspondence are omitted.',
+    keywords: 'sink repair visit scheduling proposal'
+  },
+  {
+    id: 'PP-NOTES-001',
+    title: 'Sink observation',
+    category: 'Personal notes',
+    date: 'Date uncertain',
+    excerpt: 'sink still drips if the sprayer gets pushed back.',
+    provenance: 'Synthetic Baseline 1 phone-note export. Exact sentence selected from the maintenance entry. Other details are omitted. The note has an uncertain date and reports a symptom.',
+    keywords: 'sink drip repair sprayer'
+  }
+];
+
+const questions = {
+  proposal: {
+    label: 'Confirm the visit',
+    question: 'Why hasn\u2019t Bob\u2019s maintenance been confirmed?',
+    status: 'Proposed',
+    answer: 'The November 13, 2026 email proposes Monday, November 16, from 10 a.m. to noon and asks for a reply to confirm a time. Baseline 1 establishes neither a confirmed appointment nor completed work. The reason a confirmation is missing is unknown.',
+    citations: ['PP-MAINT-001'],
+    related: ['PP-NOTES-001']
+  },
+  symptom: {
+    label: 'Find the reported issue',
+    question: 'What sink problem did Bob report?',
+    status: 'Reported',
+    answer: 'Bob\u2019s note says the sink still drips if the sprayer gets pushed back. The note\u2019s date is uncertain.',
+    citations: ['PP-NOTES-001'],
+    related: ['PP-MAINT-001']
+  },
+  completion: {
+    label: 'Check repair status',
+    question: 'Was the sink repair completed?',
+    status: 'Unverified',
+    answer: 'Baseline 1 does not establish repair completion. The email supports a proposed visit and the note documents a reported drip. A completed work order or dated follow-up would help resolve this.',
+    citations: ['PP-MAINT-001', 'PP-NOTES-001'],
+    related: []
+  }
+};
+
+const byId = id => document.getElementById(id);
+const lookup = new Map(documents.map(doc => [doc.id, doc]));
+const dialog = byId('source');
+
+function element(tag, text, className) {
+  const node = document.createElement(tag);
+  node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+
+function documentLink(id, label) {
+  const link = element('a', label, 'source-link');
+  link.href = '#' + id;
+  return link;
+}
+
+function showSource() {
+  const doc = lookup.get(location.hash.slice(1));
+  if (!doc) {
+    if (dialog.open) dialog.close();
+    return;
+  }
+  byId('source-id').textContent = doc.id;
+  byId('source-title').textContent = doc.title;
+  byId('source-meta').textContent = doc.date + ' \u00b7 ' + doc.category;
+  byId('source-excerpt').textContent = doc.excerpt;
+  byId('source-provenance').textContent = doc.provenance;
+  if (!dialog.open) dialog.showModal();
+}
+
+let previousHash = '';
+window.addEventListener('hashchange', event => {
+  const oldHash = new URL(event.oldURL).hash;
+  if (!lookup.has(oldHash.slice(1))) previousHash = oldHash;
+  showSource();
+});
+dialog.addEventListener('close', () => {
+  if (!lookup.has(location.hash.slice(1))) return;
+  history.replaceState(null, '', previousHash || location.pathname + location.search);
+});
+
+function showQuestion(key) {
+  const item = questions[key];
+  byId('question').textContent = item.question;
+  byId('status').textContent = item.status;
+  byId('status').dataset.state = key;
+  byId('answer').textContent = item.answer;
+  byId('citations').replaceChildren(...item.citations.map(id => documentLink(id, id + ' \u2197')));
+  byId('related').replaceChildren(...item.related.flatMap(id => [
+    element('h3', 'Related document'), documentLink(id, lookup.get(id).title + ' \u2197')
+  ]));
+  byId('related').hidden = item.related.length === 0;
+  for (const button of byId('prompts').children) {
+    button.setAttribute('aria-pressed', String(button.dataset.question === key));
+  }
+}
+
+for (const [key, item] of Object.entries(questions)) {
+  const button = element('button', item.label);
+  button.type = 'button';
+  button.dataset.question = key;
+  byId('prompts').append(button);
+}
+
+document.querySelectorAll('[data-question]').forEach(button => {
+  button.addEventListener('click', () => {
+    showQuestion(button.dataset.question);
+    if (button.closest('#review')) {
+      byId('prompts').querySelector('[aria-pressed="true"]').focus();
+    }
+  });
+});
+
+const search = byId('search');
+const category = byId('category');
+for (const value of new Set(documents.map(doc => doc.category))) {
+  category.add(new Option(value, value));
+}
+
+function renderDocuments() {
+  const terms = search.value.trim().toLowerCase().split(/\s+/);
+  const results = documents.filter(doc => {
+    const text = Object.values(doc).join(' ').toLowerCase();
+    return (!category.value || doc.category === category.value) &&
+      terms.every(term => text.includes(term));
+  });
+  byId('count').textContent = results.length + ' of ' + documents.length + ' documents';
+  byId('results').replaceChildren(...results.map(doc => {
+    const row = element('li', '', 'record');
+    row.append(documentLink(doc.id, doc.title + ' \u2197'),
+      element('span', doc.id + ' \u00b7 ' + doc.category + ' \u00b7 ' + doc.date, 'muted'));
+    return row;
+  }));
+  if (!results.length) byId('results').append(element('li', 'No matching documents. Try another search or category.'));
+}
+
+search.addEventListener('input', renderDocuments);
+category.addEventListener('change', renderDocuments);
+showQuestion('proposal');
+renderDocuments();
+showSource();
+</script>
+</body></html>
